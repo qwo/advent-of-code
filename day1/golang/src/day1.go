@@ -17,7 +17,10 @@ var downlevel = []byte(")")
 // Count the number of floors using string replacement
 // Count the difference
 func main() {
+	part1()
+}
 
+func part1() {
 	file, err := ioutil.ReadFile("../input.txt")
 	if err != nil {
 		fmt.Println("file can't be read")
