@@ -33,6 +33,9 @@ func part1(file []byte) {
 
 }
 
+///
+/// Find the floor santa first entered to become negative
+/// Could not reuse the same solution from before ...
 func part2(file []byte) {
 	floorLevel := 0
 	firstTime := true
