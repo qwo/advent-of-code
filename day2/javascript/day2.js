@@ -20,18 +20,30 @@ var parseobject = (s) => {
   return  typeof arr[1] != "undefined" ? {"l": +arr[0], "w": +arr[1], "h": +arr[2]} : null;
 }
 
+var calculateRibbon = (dim) => {
+
+  let [smallestX, smallestY] = [dim.w, dim.h, dim.l].sort((a,b) => a<b).slice(1)
+  return (smallestX*2 + smallestY*2) + (dim.w*dim.h*dim.l);
+}
+
 (() => {
-   var sum = 0;
+   var [sum, ribbonSum] = [0, 0];
    let stringInput = input.split('\n');
    console.log(stringInput.length)
    stringInput.forEach((val)=> {
     var dim = parseobject(val)
     if (dim) {
+      // Part 1
       console.log(dim)
       console.log(calculateArea(dim) + smallestSide(dim));
       sum = sum +  (calculateArea(dim) + smallestSide(dim));
+
+      // Part 2
+      console.log(calculateRibbon(dim));
+      ribbonSum = ribbonSum + calculateRibbon(dim);
     }
   })
 
-   console.log(sum);
+   console.log("Wrapping paper: ", sum);
+   console.log("Ribbon: ", ribbonSum);
 })();
