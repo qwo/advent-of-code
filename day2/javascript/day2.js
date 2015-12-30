@@ -20,8 +20,9 @@ var parseobject = (s) => {
   return  typeof arr[1] != "undefined" ? {"l": +arr[0], "w": +arr[1], "h": +arr[2]} : null;
 }
 
+// Finds the shortest two lengths, and uses those to calculate the wrapping ribbon
+// Other parameter does not that require such precision
 var calculateRibbon = (dim) => {
-
   let [smallestX, smallestY] = [dim.w, dim.h, dim.l].sort((a,b) => a<b).slice(1)
   return (smallestX*2 + smallestY*2) + (dim.w*dim.h*dim.l);
 }
