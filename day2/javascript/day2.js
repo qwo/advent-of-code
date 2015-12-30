@@ -10,8 +10,8 @@ var calculateArea = (dim) => {
   return 2*dim.l*dim.w + 2*dim.w*dim.h + 2*dim.h*dim.l;
 }
 
-var smallestValue = (dim) => {
-  return ([ 2*dim.l*dim.w, 2*dim.w*dim.h, 2*dim.h*dim.l].sort()[0])/2;
+var smallestSide = (dim) => {
+  return ([ dim.l*dim.w, dim.w*dim.h, dim.h*dim.l].sort((a, b )=>a>b)[0]);
 }
 
 // Passed in as 2x3x4 ( l * w * h)
@@ -28,8 +28,8 @@ var parseobject = (s) => {
     var dim = parseobject(val)
     if (dim) {
       console.log(dim)
-      console.log(calculateArea(dim) + smallestValue(dim));
-      sum = sum +  (calculateArea(dim) + smallestValue(dim));
+      console.log(calculateArea(dim) + smallestSide(dim));
+      sum = sum +  (calculateArea(dim) + smallestSide(dim));
     }
   })
 
