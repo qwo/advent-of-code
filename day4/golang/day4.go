@@ -6,8 +6,11 @@ import (
 	"strconv"
 )
 
-const secretKey = "bgvyzdsv"
-const marker = "00000"
+const (
+	secretKey = "bgvyzdsv"
+	marker    = "00000"
+	// const marker = "000000" Part 2
+)
 
 func main() {
 	found := false
@@ -16,7 +19,8 @@ func main() {
 		val := secretKey + strconv.Itoa(i)
 		hash := md5.Sum([]byte(val))
 		check := fmt.Sprintf("%x", hash[0:3])
-		check = check[0:5]
+		check = check[0:6]
+		// check = check[0:5] // Part 2
 		if check == marker {
 			fmt.Printf("Found at %d", i)
 			found = true
