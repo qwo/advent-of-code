@@ -13,9 +13,10 @@ func main() {
 	found := false
 	i := 0
 	for !found {
-		hash := md5.Sum([]byte(secretKey + strconv.Itoa(i)))
-
-		check := (fmt.Sprintf("%x", hash[0:3]))[0:5]
+		val := secretKey + strconv.Itoa(i)
+		hash := md5.Sum([]byte(val))
+		check := fmt.Sprintf("%x", hash[0:3])
+		check = check[0:5]
 		if check == marker {
 			fmt.Printf("Found at %d", i)
 			found = true
