@@ -16,7 +16,7 @@ var list = []struct {
 func TestNaughtOrNice(t *testing.T) {
 
 	for _, s := range list {
-		check := NaughtOrNice(s.word)
+		check := NiceWord(s.word)
 		if check != s.expected {
 			t.Errorf("Fib(%s): expected %t, actual %t", s.word, s.expected, check)
 		}
