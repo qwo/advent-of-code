@@ -13,6 +13,16 @@ var list = []struct {
 	{"dvszwmarrgswjxmb", false},
 }
 
+var list2 = []struct {
+	word     string
+	expected bool
+}{
+	{"qjhvhtzxzqqjkmpb", true},
+	{"xxyxx", true},
+	{"uurcxstgmygtbstg", false},
+	{"ieodomkazucvgmuy", false},
+}
+
 func TestNaughtOrNice(t *testing.T) {
 
 	for _, s := range list {
@@ -21,5 +31,14 @@ func TestNaughtOrNice(t *testing.T) {
 			t.Errorf("Fib(%s): expected %t, actual %t", s.word, s.expected, check)
 		}
 	}
+}
 
+func TestNaughtOrNice2(t *testing.T) {
+
+	for _, s := range list2 {
+		check := NiceWordPt2(s.word)
+		if check != s.expected {
+			t.Errorf("Fib(%s): expected %t, actual %t", s.word, s.expected, check)
+		}
+	}
 }
