@@ -23,6 +23,18 @@ func main() {
 		}
 	}
 	fmt.Printf("The count is %d", count)
+
+	// Restart the counter
+	count = 0
+	for _, word := range lines {
+
+		if NiceWordPt2(word) {
+			count++
+		} else {
+			fmt.Printf("%s doesn't check out\n", word)
+		}
+	}
+	fmt.Printf("The count is %d", count)
 }
 
 // NaughtyWord determines if the string is naughty or nice
@@ -31,6 +43,15 @@ func NiceWord(w string) (check bool) {
 	if doesNotContain(w, []string{"ab", "cd", "pq", "xy"}) != true {
 		return
 	}
+	check = containsThreeVowels(w) && repeatingLetters(w)
+
+	return
+}
+
+// NaughtyWord determines if the string is naughty or nice
+// and follows a set of rules
+func NiceWordPt2(w string) (check bool) {
+
 	check = containsThreeVowels(w) && repeatingLetters(w)
 
 	return
