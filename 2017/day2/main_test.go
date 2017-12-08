@@ -32,7 +32,3 @@ func TestCheckSum(t *testing.T) {
 		}
 	}
 }
-
-func TestParsing(arr string) [][]int {
-
-}
