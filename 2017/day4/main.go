@@ -18,8 +18,8 @@ func main() {
 	fmt.Println(count)
 
 	var count2 int = 0
-	x := strings.Split(input, "\n")
-	for _, i := range x {
+	y := strings.Split(input, "\n")
+	for _, i := range y {
 		if ValidPassPhrase2(i) {
 			count2++
 		}
