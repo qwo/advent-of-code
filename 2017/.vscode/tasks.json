@@ -1,0 +1,22 @@
+{
+    "version": "0.1.0",
+    "command": "sh",
+    "args": ["-c"],
+
+    "tasks": [
+        {
+            "taskName": "Node run file",
+            "suppressTaskName": true,
+            "showOutput": "always",
+            "problemMatcher": "$jshint",
+            "args": ["node ${file}"]
+        },
+        {
+            "taskName": "Python run file",
+            "suppressTaskName": true,
+            "showOutput": "always",
+            "problemMatcher": "$jshint",
+            "args": ["python ${file}"]
+        }
+    ]
+}
