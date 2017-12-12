@@ -1090,23 +1090,15 @@ huwsoc (173) -> ouspx, wjolzt
 spdhhoe (167) -> chwjiub, kvdkwy
 hhmwlo (56)
 icgwppo (84)"""
-    data = """pbga (66)
-xhth (57)
-ebii (61)
-havc (66)
-ktlj (57)
-fwft (72) -> ktlj, cntj, xhth
-qoyq (66)
-padx (45) -> pbga, havc, qoyq
-tknk (41) -> ugml, padx, fwft
-jptl (61)
-ugml (68) -> gyxo, ebii, jptl
-gyxo (61)
-cntj (57)"""
     tree = {}
     for i in data.split('\n'):
         x = i.split('->')
         name = x[0].split()[0]
+
+        """ State for part 2"""
+        weight = x[0].split()[1].strip('()')
+        weight = int(weight)
+        weights[name] = weight
         if len(x) == 1:
             tree[name] = None
         else: 
@@ -1123,19 +1115,40 @@ def searchTree(tree, path):
         print(i, tree[i])
         count += searchTree(tree, tree[i])
     return count
-    
+
+def countTree(tree, path, count = 0):
+    if path == None:
+        return 0
+    for i in path:
+        print(i, tree[i])
+        count += weights[i] + countTree(tree, tree[i])
+    return count
 
 
 x = buildtree()
+tree_heights = {}
 bottom = ''
 highest = 0 
 for k, i in buildtree().items():
     print(searchTree(x, i), 'searchTreevalue')
     search = searchTree(x, i)
+    tree_heights[k] = countTree(x, i, weights[k])
     if search > highest: 
         highest = search 
         bottom = k
 print(bottom, 'bottom is?')
 print('done?')
+
+# "the differences"
+mx = float("-inf")
+mn = float("inf")
+for i in x[bottom]:
+    print(i, tree_heights[i])
+    mx = max(mx, tree_heights[i])
+    mn = min(mn, tree_heights[i])
+print(mx - mn)
+
+print(weights['kzltfq'])
+# take the bottom and find the scoe of all of their nodes from the weights
 
 
