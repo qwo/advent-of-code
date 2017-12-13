@@ -1,3 +1,5 @@
+weights = {}
+
 def buildtree():
     data = """yjmbbu (75)
 zdhvqrl (40) -> fpbsu, fwpfjjd, viqhfi
